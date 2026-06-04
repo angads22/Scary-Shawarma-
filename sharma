@@ -1,0 +1,95 @@
+//sharmaos v0.1.5.
+
+using System;
+using System.Threading;
+
+namespace ScaryShawarmaGame {
+
+class ScaryShawarma {
+
+	// variables (to be used by many methods)
+	static Random glitch = new Random();
+
+	// VHS Glitch Effect
+	static void PlayVhsGlitch()
+	{
+		char[] glitchSymbols = {' ', '-', '=', '~', '#', '%', '░', '▒', '█'}; // characters for vhs glitch effect
+
+		for (int flash = 0; flash < 3; flash++)
+		{
+			Console.Clear();
+			for (int line = 0; line < 100; line++)
+			{
+				for (int column = 0; column < 54; column++)
+				{
+					int glitchScreen = glitch.Next(glitchSymbols.Length);
+					Console.Write(glitchSymbols[glitchScreen]);
+				}
+				Console.WriteLine();
+			}
+			Thread.Sleep(150);
+		}
+		Console.Clear();
+	}
+
+	static void TypeWriter(string input) // https://logicandchaos.itch.io/endless-prose/devlog/488908/animate-text-in-c-console-applications-a-step-by-step-tutorial
+	{
+		char[] letters = input.ToCharArray();
+		foreach (char c in letters)
+		{
+			Console.Write(c);
+			Console.Out.Flush();
+			Thread.Sleep(60);
+		}
+		Console.WriteLine();
+	}
+
+	static void Main() {
+
+		PlayVhsGlitch();
+
+		Console.WriteLine("======================================================");
+		Console.WriteLine("              Scary Shawarma Night Shift              ");
+		Console.WriteLine("======================================================");
+		Thread.Sleep(40);
+		Console.ForegroundColor = ConsoleColor.DarkGreen;
+		TypeWriter("Welcome to your automated training segment. This VHS ");
+		TypeWriter("tape will outline standard protocols to follow.");
+		TypeWriter("Survival depends entirely on your compliance during ");
+		TypeWriter("this shift.");
+		TypeWriter("Press any key if you want to begin employment.");
+
+		Console.ReadKey();
+		Console.Clear();
+
+		Console.ResetColor();
+		PlayVhsGlitch();
+		Console.WriteLine();
+		Console.ForegroundColor = ConsoleColor.DarkBlue;
+		TypeWriter("Segment 1: Customer Interaction");
+		Console.WriteLine();
+		Console.ForegroundColor = ConsoleColor.DarkGreen;
+		TypeWriter("During your night shift, you will encounter a variety of");
+		TypeWriter("customers.");
+		Console.ForegroundColor = ConsoleColor.DarkGreen;
+		TypeWriter("Failing to fulfill an order correctly will directly");
+		TypeWriter("impact your metrics.");
+
+		Console.ResetColor();
+		int pointer = Console.CursorTop;
+		Console.WriteLine(Art.normalPerson);
+
+		Console.ForegroundColor = ConsoleColor.Red;
+		TypeWriter("Regardless of their appearance, you must address their");
+		TypeWriter("needs quickly and with absolute precision.");
+		
+		Thread.Sleep(2000);
+		Console.SetCursorPosition(0, pointer);
+		Console.ResetColor();
+		Console.WriteLine(Art.scaryPerson);
+
+
+
+	}
+}
+}
