@@ -1,5 +1,9 @@
 //sharmaos v0.1.5.
-
+// ts shawarma maxxing
+// Scary Shawarma Simulator - a text based decision game
+// Inspired by the Roblox game "Scary Shawarma Simulator".
+// Built using only: arrays, if/else, for, while, do-while, methods, console I/O.
+// ASCII art is loaded from ShawarmaArt.cs (compiled together with this file).
 using System;
 using System.Threading;
 
