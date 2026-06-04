@@ -3,8 +3,6 @@
 // or by being placed in the same .NET project folder.
 // Only uses arrays, methods and output (and a for loop) to stay within the game's constraints.
 
-using System;
-
 static class ShawarmaArt
 {
     // Each piece of art is stored as a string array - one element per line - so the
