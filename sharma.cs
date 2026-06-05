@@ -1,4 +1,4 @@
-//sharmaos v0.1.5.
+//sharmaos v0.2.0.
 // ts shawarma maxxing
 // Scary Shawarma Simulator - a text based decision game
 // Inspired by the Roblox game "Scary Shawarma Simulator".
@@ -6,23 +6,30 @@
 // ASCII art is loaded from Art.cs (compiled together with this file).
 using System;
 using System.Threading;
+using System.Media;
 
 namespace ScaryShawarmaGame {
 
-class ScaryShawarma {
+class Game {
 
 	// variables (to be used by many methods)
-	static Random glitch = new Random();
+	public static Random glitch = new Random();
+	public static int satisfaction = 4; //4 = 100%, 3 = 75%, 2 = 50%, 1 = 25%, 0 = 0% (game over)
+	public static SoundPlayer VHS_Sound = new SoundPlayer("VHS_Sound.wav");
+    public static SoundPlayer Quick_Scream = new SoundPlayer("Quick_Scream.wav");
+	public static SoundPlayer VHS_Static = new SoundPlayer("VHS_Static.wav");
+	public static SoundPlayer VHS_Distort = new SoundPlayer("VHS_Distort.wav");
 
 	// VHS Glitch Effect
-	static void PlayVhsGlitch()
+	public static void PlayVhsGlitch()
 	{
 		char[] glitchSymbols = {' ', '-', '=', '~', '#', '%', '░', '▒', '█'}; // characters for vhs glitch effect
-
+		VHS_Static.Play();
+		Console.ResetColor();
 		for (int flash = 0; flash < 3; flash++)
 		{
 			Console.Clear();
-			for (int line = 0; line < 100; line++)
+			for (int line = 0; line < 60; line++)
 			{
 				for (int column = 0; column < 54; column++)
 				{
@@ -34,12 +41,14 @@ class ScaryShawarma {
 			Thread.Sleep(150);
 		}
 		Console.Clear();
+		Console.WriteLine("\x1b[3J"); //clear whole console - make previous terminal output inaccessible by scrolling
+		VHS_Static.Stop();
 	}
 
-	static void TypeWriter(string input) // https://logicandchaos.itch.io/endless-prose/devlog/488908/animate-text-in-c-console-applications-a-step-by-step-tutorial
+	public static void TypeWriter(string input) // https://logicandchaos.itch.io/endless-prose/devlog/488908/animate-text-in-c-console-applications-a-step-by-step-tutorial
 	{
 		char[] letters = input.ToCharArray();
-		foreach (char c in letters)
+		foreach (char c in letters) // break string into characters and print one by one with a delay to create a typewriter effect
 		{
 			Console.Write(c);
 			Console.Out.Flush();
@@ -56,51 +65,26 @@ class ScaryShawarma {
 		Console.WriteLine();
 	}
 
+	public static void Satisfaction() // satisfaction bar
+		{
+			if (satisfaction == 0)
+			{
+				Console.WriteLine("Customer Satisfaction: 0%");		
+			}
+
+			else
+			{
+				for (int i = 0; i < satisfaction; i++)
+				{
+					Console.Write("█████  ");
+				}
+				Console.Write("         Customer Satisfaction: " + (satisfaction * 25) + "%");
+				Console.WriteLine();
+			}
+		}
 	static void Main() {
 
-		PlayVhsGlitch();
-
-		Console.WriteLine("======================================================");
-		Console.WriteLine("              Scary Shawarma Night Shift              ");
-		Console.WriteLine("======================================================");
-		Thread.Sleep(40);
-		Console.ForegroundColor = ConsoleColor.DarkGreen;
-		TypeWriter("Welcome to your automated training segment. This VHS ");
-		TypeWriter("tape will outline standard protocols to follow.");
-		TypeWriter("Survival depends entirely on your compliance during ");
-		TypeWriter("this shift.");
-		TypeWriter("Press any key if you want to begin employment.");
-
-		Console.ReadKey();
-		Console.Clear();
-
-		Console.ResetColor();
-		PlayVhsGlitch();
-		Console.WriteLine();
-		Console.ForegroundColor = ConsoleColor.DarkBlue;
-		TypeWriter("Segment 1: Customer Interaction");
-		Console.WriteLine();
-		Console.ForegroundColor = ConsoleColor.DarkGreen;
-		TypeWriter("During your night shift, you will encounter a variety of");
-		TypeWriter("customers.");
-		Console.ForegroundColor = ConsoleColor.DarkGreen;
-		TypeWriter("Failing to fulfill an order correctly will directly");
-		TypeWriter("impact your metrics.");
-
-		Console.ResetColor();
-		int pointer = Console.CursorTop;
-		Console.WriteLine(Art.normalPerson);
-
-		Console.ForegroundColor = ConsoleColor.Red;
-		TypeWriter("Regardless of their appearance, you must address their");
-		TypeWriter("needs quickly and with absolute precision.");
-		
-		Thread.Sleep(2000);
-		Console.SetCursorPosition(0, pointer);
-		Console.WriteLine(Art.scaryPerson);
-
-
-
+		Tutorial.StartTutorial();
 	}
 }
 }

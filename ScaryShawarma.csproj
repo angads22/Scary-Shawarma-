@@ -8,4 +8,8 @@
     <RootNamespace>ScaryShawarmaGame</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Windows.Extensions" Version="10.0.8" />
+  </ItemGroup>
+
 </Project>

@@ -13,3 +13,22 @@
 /workspaces/Scary-Shawarma-/obj/Debug/net10.0/ScaryShawarma.pdb
 /workspaces/Scary-Shawarma-/obj/Debug/net10.0/ScaryShawarma.genruntimeconfig.cache
 /workspaces/Scary-Shawarma-/obj/Debug/net10.0/ref/ScaryShawarma.dll
+C:\Users\moham\OneDrive\Desktop\Scary Shawarma\Scary-Shawarma-\bin\Debug\net10.0\ScaryShawarma.exe
+C:\Users\moham\OneDrive\Desktop\Scary Shawarma\Scary-Shawarma-\bin\Debug\net10.0\ScaryShawarma.deps.json
+C:\Users\moham\OneDrive\Desktop\Scary Shawarma\Scary-Shawarma-\bin\Debug\net10.0\ScaryShawarma.runtimeconfig.json
+C:\Users\moham\OneDrive\Desktop\Scary Shawarma\Scary-Shawarma-\bin\Debug\net10.0\ScaryShawarma.dll
+C:\Users\moham\OneDrive\Desktop\Scary Shawarma\Scary-Shawarma-\bin\Debug\net10.0\ScaryShawarma.pdb
+C:\Users\moham\OneDrive\Desktop\Scary Shawarma\Scary-Shawarma-\obj\Debug\net10.0\ScaryShawarma.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\moham\OneDrive\Desktop\Scary Shawarma\Scary-Shawarma-\obj\Debug\net10.0\ScaryShawarma.AssemblyInfoInputs.cache
+C:\Users\moham\OneDrive\Desktop\Scary Shawarma\Scary-Shawarma-\obj\Debug\net10.0\ScaryShawarma.AssemblyInfo.cs
+C:\Users\moham\OneDrive\Desktop\Scary Shawarma\Scary-Shawarma-\obj\Debug\net10.0\ScaryShawarma.csproj.CoreCompileInputs.cache
+C:\Users\moham\OneDrive\Desktop\Scary Shawarma\Scary-Shawarma-\obj\Debug\net10.0\ScaryShawarma.sourcelink.json
+C:\Users\moham\OneDrive\Desktop\Scary Shawarma\Scary-Shawarma-\obj\Debug\net10.0\ScaryShawarma.dll
+C:\Users\moham\OneDrive\Desktop\Scary Shawarma\Scary-Shawarma-\obj\Debug\net10.0\refint\ScaryShawarma.dll
+C:\Users\moham\OneDrive\Desktop\Scary Shawarma\Scary-Shawarma-\obj\Debug\net10.0\ScaryShawarma.pdb
+C:\Users\moham\OneDrive\Desktop\Scary Shawarma\Scary-Shawarma-\obj\Debug\net10.0\ScaryShawarma.genruntimeconfig.cache
+C:\Users\moham\OneDrive\Desktop\Scary Shawarma\Scary-Shawarma-\obj\Debug\net10.0\ref\ScaryShawarma.dll
+C:\Users\moham\OneDrive\Desktop\Scary Shawarma\Scary-Shawarma-\obj\Debug\net10.0\ScaryShawarma.csproj.AssemblyReference.cache
+C:\Users\moham\OneDrive\Desktop\Scary Shawarma\Scary-Shawarma-\obj\Debug\net10.0\ScarySha.F7299590.Up2Date
+C:\Users\moham\OneDrive\Desktop\Scary Shawarma\Scary-Shawarma-\bin\Debug\net10.0\System.Windows.Extensions.dll
+C:\Users\moham\OneDrive\Desktop\Scary Shawarma\Scary-Shawarma-\bin\Debug\net10.0\runtimes\win\lib\net10.0\System.Windows.Extensions.dll
