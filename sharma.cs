@@ -3,7 +3,7 @@
 // Scary Shawarma Simulator - a text based decision game
 // Inspired by the Roblox game "Scary Shawarma Simulator".
 // Built using only: arrays, if/else, for, while, do-while, methods, console I/O.
-// ASCII art is loaded from ShawarmaArt.cs (compiled together with this file).
+// ASCII art is loaded from Art.cs (compiled together with this file).
 using System;
 using System.Threading;
 
@@ -43,7 +43,15 @@ class ScaryShawarma {
 		{
 			Console.Write(c);
 			Console.Out.Flush();
-			Thread.Sleep(60);
+            
+            if (c == '.' || c == '?' || c == '!')
+            {
+                Thread.Sleep(180);
+            }
+            else
+            {
+                Thread.Sleep(45);
+            }
 		}
 		Console.WriteLine();
 	}
@@ -89,7 +97,6 @@ class ScaryShawarma {
 		
 		Thread.Sleep(2000);
 		Console.SetCursorPosition(0, pointer);
-		Console.ResetColor();
 		Console.WriteLine(Art.scaryPerson);
 
 
