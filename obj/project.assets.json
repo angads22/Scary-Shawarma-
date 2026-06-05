@@ -8,19 +8,19 @@
     "net10.0": []
   },
   "packageFolders": {
-    "/home/codespace/.nuget/packages/": {}
+    "C:\\Users\\moham\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/workspaces/Scary-Shawarma-/ScaryShawarma.csproj",
+      "projectUniqueName": "C:\\Users\\moham\\OneDrive\\Desktop\\Scary Shawarma\\Scary-Shawarma-\\ScaryShawarma.csproj",
       "projectName": "ScaryShawarma",
-      "projectPath": "/workspaces/Scary-Shawarma-/ScaryShawarma.csproj",
-      "packagesPath": "/home/codespace/.nuget/packages/",
-      "outputPath": "/workspaces/Scary-Shawarma-/obj/",
+      "projectPath": "C:\\Users\\moham\\OneDrive\\Desktop\\Scary Shawarma\\Scary-Shawarma-\\ScaryShawarma.csproj",
+      "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\moham\\OneDrive\\Desktop\\Scary Shawarma\\Scary-Shawarma-\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/codespace/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\moham\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.200/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",
