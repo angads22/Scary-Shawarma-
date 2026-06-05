@@ -1,0 +1,15 @@
+/workspaces/Scary-Shawarma-/bin/Debug/net10.0/ScaryShawarma
+/workspaces/Scary-Shawarma-/bin/Debug/net10.0/ScaryShawarma.deps.json
+/workspaces/Scary-Shawarma-/bin/Debug/net10.0/ScaryShawarma.runtimeconfig.json
+/workspaces/Scary-Shawarma-/bin/Debug/net10.0/ScaryShawarma.dll
+/workspaces/Scary-Shawarma-/bin/Debug/net10.0/ScaryShawarma.pdb
+/workspaces/Scary-Shawarma-/obj/Debug/net10.0/ScaryShawarma.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/Scary-Shawarma-/obj/Debug/net10.0/ScaryShawarma.AssemblyInfoInputs.cache
+/workspaces/Scary-Shawarma-/obj/Debug/net10.0/ScaryShawarma.AssemblyInfo.cs
+/workspaces/Scary-Shawarma-/obj/Debug/net10.0/ScaryShawarma.csproj.CoreCompileInputs.cache
+/workspaces/Scary-Shawarma-/obj/Debug/net10.0/ScaryShawarma.sourcelink.json
+/workspaces/Scary-Shawarma-/obj/Debug/net10.0/ScaryShawarma.dll
+/workspaces/Scary-Shawarma-/obj/Debug/net10.0/refint/ScaryShawarma.dll
+/workspaces/Scary-Shawarma-/obj/Debug/net10.0/ScaryShawarma.pdb
+/workspaces/Scary-Shawarma-/obj/Debug/net10.0/ScaryShawarma.genruntimeconfig.cache
+/workspaces/Scary-Shawarma-/obj/Debug/net10.0/ref/ScaryShawarma.dll
