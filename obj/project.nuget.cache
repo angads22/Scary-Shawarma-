@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "G2Q8cXWeHaw=",
+  "dgSpecHash": "wEVSEFzk+2A=",
   "success": true,
   "projectFilePath": "C:\\Users\\moham\\OneDrive\\Desktop\\Scary Shawarma\\Scary-Shawarma-\\ScaryShawarma.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\moham\\.nuget\\packages\\system.windows.extensions\\10.0.8\\system.windows.extensions.10.0.8.nupkg.sha512"
+  ],
   "logs": []
 }
