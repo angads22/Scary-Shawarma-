@@ -1,5 +1,5 @@
 //v3.0.0
-
+//Art for the game - laid out here and used throughout the game
 using System;
 
 namespace ScaryShawarmaGame

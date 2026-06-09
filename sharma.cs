@@ -1,15 +1,12 @@
 //sharmaos v0.3.0.
-// ts shawarma maxxing
 // Scary Shawarma Simulator - a text based decision game
-// Inspired by the Roblox game "Scary Shawarma Simulator".
-// Built using only: arrays, if/else, for, while, do-while, methods, console I/O.
-// ASCII art is loaded from Art.cs (compiled together with this file).
+
 using System;
 using System.Threading;
 using System.Media;
 using System.Runtime.Versioning;
 
-[assembly: SupportedOSPlatform("windows")]
+[assembly: SupportedOSPlatform("windows")] //declare windows support (this is for sound only)
 
 namespace ScaryShawarmaGame
 {
@@ -18,30 +15,35 @@ namespace ScaryShawarmaGame
 	{
 
 		// variables (to be used by many methods)
+		public static bool gameActive = true; // keep running game or stop
 		public static Random glitch = new Random(); // random generator for vhs glitch effect
 		public static int customer = 0; // number of customers served
 		public static int money = 0; // money earned
-		public static string time; // 
+		public static string time = ""; // 
 		public static bool camera = false; // whether the night vision camera is on or off
 		public static int satisfaction = 4; //4 = 100%, 3 = 75%, 2 = 50%, 1 = 25%, 0 = 0% (game over)
 		public static SoundPlayer? VHS_Sound;
 		public static SoundPlayer? Quick_Scream;
 		public static SoundPlayer? VHS_Static;
 		public static SoundPlayer? VHS_Distort;
+		public static SoundPlayer? Intro_Music;
+		public static SoundPlayer? Game_Music;
 
 		static Game()
 		{
-			if (OperatingSystem.IsWindows())
+			if (OperatingSystem.IsWindows()) //Only load sounds if OS is Windows.
 			{
 				VHS_Sound = new SoundPlayer("VHS_Sound.wav");
 				Quick_Scream = new SoundPlayer("Quick_Scream.wav");
 				VHS_Static = new SoundPlayer("VHS_Static.wav");
 				VHS_Distort = new SoundPlayer("VHS_Distort.wav");
+				Intro_Music = new SoundPlayer("Intro_Music.wav");
+				Game_Music = new SoundPlayer("Game_Music.wav");
 			}
 		}
 
 		// VHS Glitch Effect
-		public static void PlayVhsGlitch()
+		public static void PlayVhsGlitch() //VHS Glitch effect prints random order characters for effect
 		{
 			char[] glitchSymbols = { ' ', '-', '=', '~', '#', '%', '░', '▒', '█' }; // characters for vhs glitch effect
 			VHS_Static?.Play();
@@ -97,15 +99,15 @@ namespace ScaryShawarmaGame
 				Console.ForegroundColor = ConsoleColor.Cyan;
 				if (satisfaction == 1)
 				{
-					Console.WriteLine("█████                           	                Satisfaction: 25%");
+					Console.WriteLine("█████                           	                  Satisfaction: 25%");
 				}
 				else if (satisfaction == 2)
 				{
-					Console.WriteLine("█████  █████                                      Satisfaction: 50%");
+					Console.WriteLine("█████  █████                                       Satisfaction: 50%");
 				}
 				else if (satisfaction == 3)
 				{
-					Console.WriteLine("█████  █████  █████                               Satisfaction: 75%");
+					Console.WriteLine("█████  █████  █████                                Satisfaction: 75%");
 				}
 				else if (satisfaction == 4)
 				{
@@ -114,37 +116,110 @@ namespace ScaryShawarmaGame
 				Console.ResetColor();
 			}
 		}
-		static void Main()
+
+		public static void Win()
+		{
+			Console.ForegroundColor = ConsoleColor.Magenta;
+			Console.WriteLine(@"
+ ██╗   ██╗ ██████╗ ██╗   ██╗    ██╗    ██╗ ██╗ ███╗   ██╗ ██╗
+ ╚██╗ ██╔╝██╔═══██╗██║   ██║    ██║    ██║ ██║ ████╗  ██║ ██║
+  ╚████╔╝ ██║   ██║██║   ██║    ██║ █╗ ██║ ██║ ██╔██╗ ██║ ██║
+   ╚██╔╝  ██║   ██║██║   ██║    ██║███╗██║ ██║ ██║╚██╗██║ ╚═╝
+    ██║   ╚██████╔╝╚██████╔╝    ╚███╔███╔╝ ██║ ██║ ╚████║ ██╗
+    ╚═╝    ╚═════╝  ╚═════╝      ╚══╝╚══╝  ╚═╝ ╚═╝  ╚═══╝ ╚═╝");
+			Thread.Sleep(3000);
+			StartGame.FinalMessage();
+		}
+		static void Main() //Logic for starting tutorial, and random customer order. "Master" method.
 		{
 			VHS_Sound?.Load();
 			Console.Clear();
 			Console.WriteLine("\x1b[3J");
-			TypeWriter("Do you want to start the tutorial?"); //intro
-			Console.WriteLine("Enter Number: 1. Yes            2. No");
+			Intro_Music?.PlayLooping(); //Intro Music + Play Screen (aka menu)
+			Console.WriteLine(@"
+================================================================================
+||                                                                            ||
+||                 ███████╗ ██████╗ █████╗ ██████╗ ██╗   ██╗                  ||
+||                 ██╔════╝██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝                  ||
+||                 ███████╗██║     ███████║██████╔╝ ╚████╔╝                   ||
+||                 ╚════██║██║     ██╔══██║██╔══██╗  ╚██╔╝                    ||
+||                 ███████║╚██████╗██║  ██║██║  ██║   ██║                     ||
+||                 ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝                     ||
+||                                                                            ||
+||   ███████╗██╗  ██╗ █████╗ ██╗    ██╗ █████╗ ██████╗ ███╗   ███╗ █████╗     ||
+||   ██╔════╝██║  ██║██╔══██╗██║    ██║██╔══██╗██╔══██╗████╗ ████║██╔══██╗    ||
+||   ███████╗███████║███████║██║ █╗ ██║███████║██████╔╝██╔████╔██║███████║    ||
+||   ╚════██║██╔══██║██╔══██║██║███╗██║██╔══██║██╔══██╗██║╚██╔╝██║██╔══██║    ||
+||   ███████║██║  ██║██║  ██║╚███╔███╔╝██║  ██║██║  ██║██║ ╚═╝ ██║██║  ██║    ||
+||   ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝    ||
+||                                                                            ||
+||           ██╗  ██╗  ██████╗  ██████╗  ██████╗  ██████╗  ██████╗            ||
+||           ██║  ██║ ██╔═══██╗ ██╔══██╗ ██╔══██╗██╔═══██╗ ██╔══██╗           ||
+||           ███████║ ██║   ██║ ██████╔╝ ██████╔╝██║   ██║ ██████╔╝           ||
+||           ██╔══██║ ██║   ██║ ██╔══██╗ ██╔══██╗██║   ██║ ██╔══██╗           ||
+||           ██║  ██║ ╚██████╔╝ ██║  ██║ ██║  ██║╚██████╔╝ ██║  ██║           ||
+||           ╚═╝  ╚═╝  ╚═════╝  ╚═╝  ╚═╝ ╚═╝  ╚═╝ ╚═════╝  ╚═╝  ╚═╝           ||
+||                                                                            ||
+================================================================================
+||                    [1] START NIGHT SHIFT    [2] TUTORIAL                   ||
+================================================================================
+			");
+			//TypeWriter("Do you want to start the tutorial?"); //intro
+			Console.WriteLine("Enter Number: ");
 			int choice = int.Parse(Console.ReadLine()!);
-			if (choice == 1)
+			if (choice == 2)
 			{
+				Intro_Music?.Stop();
 				Tutorial.StartTutorial();
-				Console.Clear();
-				Console.WriteLine(@"
+			}
+
+			Console.Clear();
+			Intro_Music?.Stop(); //if user enters 1, skip tutorial.
+			Console.WriteLine(@"
 █▀▀▀ ▀▀█▀▀ █▀▀█ █▀▀█ ▀▀█▀▀ ▀█▀ █▄  █ █▀▀▀   █▀▀▀ █  █ ▀█▀ █▀▀▀ ▀▀█▀▀
 ▀▀▀█   █   █▄▄█ █▄▄▀   █    █  █ █ █ █ ▀█   ▀▀▀█ █▀▀█  █  █▀▀▀   █            
 ▀▀▀▀   ▀   ▀  ▀ ▀ ▀▀   ▀   ▀▀▀ ▀  ▀▀ ▀▀▀▀   ▀▀▀▀ ▀  ▀ ▀▀▀ ▀      ▀  ▀ ▀ ▀");
-				Thread.Sleep(3000);
-				Random rand = new Random();
+
+			Thread.Sleep(3000);
+			Random rand = new Random();
+			Game_Music?.PlayLooping();
+
+			for (int i = 0; i < 18; i++)
+			{
+
+				if (!gameActive)
+				{
+					Game_Music?.Stop();
+					break;
+				}
+
 				int encounterChance = rand.Next(1, 101);
 
-			//StartGame.Vampire();
+				if (encounterChance <= 50)
+				{
+					// 1 to 60 (60% chance)
+					StartGame.Normal();
+				}
+				else if (encounterChance <= 80)
+				{
+					StartGame.Abnormal();
+				}
+				else
+				{
+					StartGame.Vampire();
+				}
 
-			if (encounterChance <= 60)
-			{
-				StartGame.Normal();
+				if (customer == 18)
+				{
+					Console.Clear();
+					Console.WriteLine("\x1b[3J");
+					Game_Music?.Stop();
+					Win();
+					break;
+				}
+
 			}
-			else
-			{
-				StartGame.Abnormal();
-			}
+
 		}
 	}
-}
 }

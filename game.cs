@@ -10,7 +10,50 @@ namespace ScaryShawarmaGame
     public static class StartGame
     {
         static int choice;
-        public static void Time()
+        public static int GetShawarmaPrice() //method that returns value
+        {
+            return 15;
+        }
+
+        public static void GameOver1() //if satisfaction drops to zero
+        {
+            Game_Music?.Stop();
+            gameActive = false;
+            Console.Clear();
+            Console.WriteLine("\x1b[3J");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Satisfaction has dropped to zero...");
+            Thread.Sleep(2000);
+            Console.Clear();
+            Console.WriteLine(@"
+ ██╗   ██╗ ██████╗ ██╗   ██╗    ██╗      ██████╗  ██████╗███████╗    ██╗ 
+ ╚██╗ ██╔╝██╔═══██╗██║   ██║    ██║     ██╔═══██╗██╔════╝██╔════╝    ██║ 
+  ╚████╔╝ ██║   ██║██║   ██║    ██║     ██║   ██║╚█████╗ █████╗      ██║ 
+   ╚██╔╝  ██║   ██║██║   ██║    ██║     ██║   ██║ ╚═══██╗██╔══╝      ╚═╝ 
+    ██║   ╚██████╔╝╚██████╔╝    ███████╗╚██████╔╝██████╔╝███████╗    ██╗ 
+    ╚═╝    ╚═════╝  ╚═════╝     ╚══════╝ ╚═════╝ ╚═════╝ ╚══════╝    ╚═╝");
+            Thread.Sleep(3000);
+            FinalMessage();
+        }
+
+        public static void GameOver2() //if player dies to an anomaly
+        {
+            Game_Music?.Stop();
+            gameActive = false;
+            Console.Clear();
+            Console.WriteLine("\x1b[3J");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(@"
+ ██╗   ██╗ ██████╗ ██╗   ██╗    ██████╗ ██╗███████╗██████╗  ██╗
+ ╚██╗ ██╔╝██╔═══██╗██║   ██║    ██╔══██╗██║██╔════╝██╔══██╗ ██║
+  ╚████╔╝ ██║   ██║██║   ██║    ██║  ██║██║█████╗  ██║  ██║ ██║
+   ╚██╔╝  ██║   ██║██║   ██║    ██║  ██║██║██╔══╝  ██║  ██║ ╚═╝
+    ██║   ╚██████╔╝╚██████╔╝    ██████╔╝██║███████╗██████╔╝ ██╗
+    ╚═╝    ╚═════╝  ╚═════╝     ╚═════╝ ╚═╝╚══════╝╚═════╝  ╚═╝");
+            Thread.Sleep(3000);
+            FinalMessage();
+        }
+        public static void Time() //time tracker
         {
             switch (customer)
             {
@@ -36,7 +79,7 @@ namespace ScaryShawarmaGame
             }
         }
 
-        public static void Normal()
+        public static void Normal() //Normal Customer
         {
             customer++;
             camera = false;
@@ -44,8 +87,7 @@ namespace ScaryShawarmaGame
             string[] orders = { "a shawarma", "a shawarma and a drink", "a shawarma with extra chicken" };
             Random rand = new Random();
             int option = rand.Next(orders.Length);
-            // Local helper function to perfectly rebuild your layout using your exact variables
-            void DrawScreen()
+            void DrawScreen() //Created earlier for easier printing when switching cameras.
             {
                 Console.Clear();
                 Console.WriteLine("\x1b[3J");
@@ -66,11 +108,11 @@ namespace ScaryShawarmaGame
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write(Art.normalPerson); 
+                    Console.Write(Art.normalPerson);
                 }
 
                 Console.WriteLine();
-                Console.WriteLine(); 
+                Console.WriteLine();
                 Console.WriteLine("A customer approaches the counter. ");
                 Console.WriteLine("\"I'd like " + orders[option] + " please.\"");
                 Console.WriteLine();
@@ -80,23 +122,22 @@ namespace ScaryShawarmaGame
                 Console.WriteLine("4. Lie to the customer, saying you have ran out of ingredients.");
             }
 
-            // Draw the screen the first time the customer walks up
             DrawScreen();
 
             while (true)
             {
-                string input = Console.ReadLine();
+                string input = Console.ReadLine()!;
 
-                if (input == "C" || input == "c")
+                if (input == "C" || input == "c") //check for valid/invalid input
                 {
                     camera = !camera;
                     DrawScreen();
-                    continue; 
+                    continue;
                 }
 
                 if (int.TryParse(input, out choice) && choice >= 1 && choice <= 4)
                 {
-                    break; 
+                    break;
                 }
                 Console.WriteLine("Invalid input. Please enter 1, 2, 3, 4, or C.");
             }
@@ -105,7 +146,7 @@ namespace ScaryShawarmaGame
             {
                 case 1:
                     Console.WriteLine("The customer leaves satisfied.");
-                    money += 10; 
+                    money += GetShawarmaPrice();
                     break;
                 case 2:
                     Console.WriteLine("The customer leaves, promising to leave a bad review.");
@@ -120,12 +161,16 @@ namespace ScaryShawarmaGame
                     satisfaction--;
                     break;
             }
-
-            Thread.Sleep(2000);
+            Thread.Sleep(3000);
+            if (satisfaction == 0)
+            {
+                GameOver1();
+                return;
+            }
 
         }
 
-        public static void Abnormal()
+        public static void Abnormal() //Hidden Anomaly, requires camera to reveal. Only goal here is to survive.
         {
             customer++;
             camera = false;
@@ -133,7 +178,6 @@ namespace ScaryShawarmaGame
             string[] orders = { "a shawarma", "a shawarma and a drink", "a shawarma with extra chicken" };
             Random rand = new Random();
             int option = rand.Next(orders.Length);
-            // Local helper function to perfectly rebuild your layout using your exact variables
             void DrawScreen()
             {
                 Console.Clear();
@@ -155,11 +199,11 @@ namespace ScaryShawarmaGame
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write(Art.normalPerson); 
+                    Console.Write(Art.normalPerson);
                 }
 
                 Console.WriteLine();
-                Console.WriteLine(); 
+                Console.WriteLine();
                 Console.WriteLine("A customer approaches the counter. ");
                 Console.WriteLine("\"I'd like " + orders[option] + " please.\"");
                 Console.WriteLine();
@@ -169,23 +213,22 @@ namespace ScaryShawarmaGame
                 Console.WriteLine("4. Lie to the customer, saying you have ran out of ingredients.");
             }
 
-            // Draw the screen the first time the customer walks up
             DrawScreen();
 
             while (true)
             {
-                string input = Console.ReadLine();
+                string input = Console.ReadLine()!;
 
                 if (input == "C" || input == "c")
                 {
                     camera = !camera;
                     DrawScreen();
-                    continue; 
+                    continue;
                 }
 
                 if (int.TryParse(input, out choice) && choice >= 1 && choice <= 4)
                 {
-                    break; 
+                    break;
                 }
                 Console.WriteLine("Invalid input. Please enter 1, 2, 3, 4, or C.");
             }
@@ -193,24 +236,30 @@ namespace ScaryShawarmaGame
             switch (choice)
             {
                 case 1:
-                    Console.WriteLine("The customer grabs you by the arm. They drag you out with a weird smile on their face.");
+                    Console.WriteLine("The customer grabs you by the arm. They drag you out with a creepy smile on their face.");
+                    Thread.Sleep(3000);
+                    GameOver2();
                     break;
                 case 2:
-                    Console.WriteLine("The customer lets out a terrifyingly loud scream, leaving you termbling in fear as they walk away.");
+                    Console.WriteLine("The customer lets out a terrifyingly loud scream, and climbs into the food truck.");
+                    Thread.Sleep(3000);
+                    GameOver2();
                     break;
                 case 3:
                     Console.WriteLine("The customer bangs on the service window. However, you are safe inside.");
                     break;
                 case 4:
                     Console.WriteLine("The entity is smarter than you thought. It jumps inside the truck, grabbing you and dragging you out with a weird smile on its face.");
+                    Thread.Sleep(3000);
+                    GameOver2();
                     break;
             }
 
-            Thread.Sleep(2000);
+            Thread.Sleep(3000);
 
         }
 
-        public static void Vampire()
+        public static void Vampire() //vampire - you can earn cash, lose satisfaction, or lose life
         {
             customer++;
             camera = false;
@@ -236,11 +285,11 @@ namespace ScaryShawarmaGame
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write(Art.vampire); 
+                    Console.Write(Art.vampire);
                 }
 
                 Console.WriteLine();
-                Console.WriteLine(); 
+                Console.WriteLine();
                 Console.WriteLine("A customer approaches the counter. ");
                 Console.WriteLine("\"I'd like a shawarma, with NO garlic.\"");
                 Console.WriteLine();
@@ -250,23 +299,22 @@ namespace ScaryShawarmaGame
                 Console.WriteLine("4. Close the service window.");
             }
 
-            // Draw the screen the first time the customer walks up
             DrawScreen();
 
             while (true)
             {
-                string input = Console.ReadLine();
+                string input = Console.ReadLine()!;
 
                 if (input == "C" || input == "c")
                 {
                     camera = !camera;
                     DrawScreen();
-                    continue; 
+                    continue;
                 }
 
                 if (int.TryParse(input, out choice) && choice >= 1 && choice <= 4)
                 {
-                    break; 
+                    break;
                 }
                 Console.WriteLine("Invalid input. Please enter 1, 2, 3, 4, or C.");
             }
@@ -275,24 +323,59 @@ namespace ScaryShawarmaGame
             {
                 case 1:
                     Console.WriteLine("The customer grabs you by the arm and sinks their teeth into your neck.");
+                    Thread.Sleep(3000);
+                    GameOver2();
                     break;
                 case 2:
                     Console.WriteLine("The customer does not like the lack of sauce.");
+                    satisfaction--;
                     break;
                 case 3:
                     Console.WriteLine("The customer loves the tahini sauce. They walk away happily.");
+                    money += GetShawarmaPrice();
                     break;
                 case 4:
                     Console.WriteLine("The lights start to flicker.");
+                    Thread.Sleep(1500);
                     Console.WriteLine("The vampire suddenly appears in front of you.");
+                    Thread.Sleep(1500);
                     Console.WriteLine("You feel a sharp pain in your neck.");
+                    Thread.Sleep(3000);
+                    GameOver2();
                     break;
             }
 
-            Thread.Sleep(2000);
+            Thread.Sleep(3000);
+            if (satisfaction == 0)
+            {
+                GameOver1();
+                return;
+            }
 
         }
 
+        public static void FinalMessage() // a final message about computing in society/environment
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("=======================================================");
+            Console.WriteLine("                     FINAL MESSAGE                     ");
+            Console.WriteLine("=======================================================");
+            Console.WriteLine();
+            TypeWriter("Today, you used a camera to survive. In our modern");
+            TypeWriter("world, surveillance systems and Artificial");
+            TypeWriter("Intelligence is changing everything.");
+            Console.WriteLine();
+            TypeWriter("- Real-time monitoring of public spaces, detecting ");
+            TypeWriter("  accidents and preventing hazards");
+            Console.WriteLine();
+            TypeWriter("- Tracking of endangered species and gathering data to");
+            TypeWriter("  ensure their survival and fend off illegal poachers.");
+            Console.WriteLine();
+            TypeWriter("- Dangers and concerns: privacy & data use, ");
+            TypeWriter("  algorithmic bias, and increasing use of AI data");
+            TypeWriter("  centers that use freshwater and disrupt ecosystems.");
+        }
 
     }
 }
