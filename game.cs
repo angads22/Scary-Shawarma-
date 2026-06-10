@@ -366,15 +366,15 @@ namespace ScaryShawarmaGame
             TypeWriter("world, surveillance systems and Artificial");
             TypeWriter("Intelligence is changing everything.");
             Console.WriteLine();
-            TypeWriter("- Real-time monitoring of public spaces, detecting ");
-            TypeWriter("  accidents and preventing hazards");
+            Console.WriteLine("- Real-time monitoring of public spaces, detecting ");
+            Console.WriteLine("  accidents and preventing hazards");
             Console.WriteLine();
-            TypeWriter("- Tracking of endangered species and gathering data to");
-            TypeWriter("  ensure their survival and fend off illegal poachers.");
+            Console.WriteLine("- Tracking of endangered species and gathering data to");
+            Console.WriteLine("  ensure their survival and fend off illegal poachers.");
             Console.WriteLine();
-            TypeWriter("- Dangers and concerns: privacy & data use, ");
-            TypeWriter("  algorithmic bias, and increasing use of AI data");
-            TypeWriter("  centers that use freshwater and disrupt ecosystems.");
+            Console.WriteLine("- Dangers and concerns: privacy & data use, ");
+            Console.WriteLine("  algorithmic bias, and increasing use of AI data");
+            Console.WriteLine("  centers that use freshwater and disrupt ecosystems.");
         }
 
     }
