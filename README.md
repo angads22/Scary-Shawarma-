@@ -7,6 +7,7 @@ Based off the popular Roblox game "Scary Shawarma Horror".
 * Night Vision Camera to detect anomalies.
 * Music / Sound Effects! - NOTE: Sound only works on Windows. System.Media is used for Audio.
 * Satisfaction Bar to track progress - Game Over if bar drops to zero... or if you die.
+* Console-Size Support - updating ASCII art works with any console size
 
 ## How to Run
 1. Download files
@@ -18,10 +19,3 @@ Based off the popular Roblox game "Scary Shawarma Horror".
 * Deal with anomalies accordingly
 * Enter C for cameras
 * You will have 4 options to choose from when dealing with customers. Only one is correct - the rest have consequences.
-
-## Coding the Game (Notes for Coders)
-* TypeWriter text effect: TypeWriter();
-* For Sounds (Name is placeholder for variable name):
-    * Play: Name?.Play(); OR Name?.PlayLooping();
-    * Stop: Name?.Stop();
-* Delays: Thread.Sleep(milliseconds);
