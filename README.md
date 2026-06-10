@@ -9,7 +9,7 @@ Based off the popular Roblox game "Scary Shawarma Horror".
 * Satisfaction Bar to track progress - Game Over if bar drops to zero... or if you die.
 
 ## How to Run
-1. Download files or clone the repository.
+1. Download files
 2. Open terminal / command prompt.
 3. Run the command "dotnet run".
 
