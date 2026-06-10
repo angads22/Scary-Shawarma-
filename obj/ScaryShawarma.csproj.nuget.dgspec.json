@@ -1,25 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\moham\\OneDrive\\Desktop\\Scary Shawarma\\Scary-Shawarma-\\ScaryShawarma.csproj": {}
+    "/home/user/Scary-Shawarma-/ScaryShawarma.csproj": {}
   },
   "projects": {
-    "C:\\Users\\moham\\OneDrive\\Desktop\\Scary Shawarma\\Scary-Shawarma-\\ScaryShawarma.csproj": {
+    "/home/user/Scary-Shawarma-/ScaryShawarma.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\moham\\OneDrive\\Desktop\\Scary Shawarma\\Scary-Shawarma-\\ScaryShawarma.csproj",
+        "projectUniqueName": "/home/user/Scary-Shawarma-/ScaryShawarma.csproj",
         "projectName": "ScaryShawarma",
-        "projectPath": "C:\\Users\\moham\\OneDrive\\Desktop\\Scary Shawarma\\Scary-Shawarma-\\ScaryShawarma.csproj",
-        "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\moham\\OneDrive\\Desktop\\Scary Shawarma\\Scary-Shawarma-\\obj\\",
+        "projectPath": "/home/user/Scary-Shawarma-/ScaryShawarma.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/home/user/Scary-Shawarma-/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\moham\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
+          "/usr/lib/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,12 +39,18 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
           "dependencies": {
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[10.0.8, )",
+              "autoReferenced": true
+            },
             "System.Windows.Extensions": {
               "target": "Package",
               "version": "[10.0.8, )"
@@ -60,12 +67,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[10.0.8, 10.0.8]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[10.0.8, 10.0.8]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x64",
+              "version": "[10.0.8, 10.0.8]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.108/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -340,6 +361,11 @@
             "System.Xml.XPath": "(,4.3.32767]",
             "System.Xml.XPath.XDocument": "(,5.0.32767]"
           }
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     }
