@@ -1,4 +1,4 @@
-//sharmaos v0.3.0.
+//sharmaos v1.3.0.
 // Scary Shawarma Simulator - a text based decision game
 
 using System;
