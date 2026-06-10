@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ScaryShawarma")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a0284e717c71f69171ba1892f4c641331c77c8b5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7af03da2d15608a3b3efec987a63b30216ee83d8")]
 [assembly: System.Reflection.AssemblyProductAttribute("ScaryShawarma")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ScaryShawarma")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

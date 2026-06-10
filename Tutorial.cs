@@ -66,7 +66,7 @@ namespace ScaryShawarmaGame
 			Console.WriteLine("Segment 1: Customer Interaction");
 			Console.WriteLine();
 			Console.ForegroundColor = ConsoleColor.DarkGreen;
-			Console.WriteLine("During your night shift, you will encounter a variety of");
+			Console.WriteLine("During your 6-hour night shift, you will encounter a variety of");
 			Console.WriteLine("customers.");
 
 			Console.ForegroundColor = ConsoleColor.Red;
