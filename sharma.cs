@@ -33,12 +33,13 @@ namespace ScaryShawarmaGame
 		{
 			if (OperatingSystem.IsWindows()) //Only load sounds if OS is Windows.
 			{
-				VHS_Sound = new SoundPlayer("VHS_Sound.wav");
-				Quick_Scream = new SoundPlayer("Quick_Scream.wav");
-				VHS_Static = new SoundPlayer("VHS_Static.wav");
-				VHS_Distort = new SoundPlayer("VHS_Distort.wav");
-				Intro_Music = new SoundPlayer("Intro_Music.wav");
-				Game_Music = new SoundPlayer("Game_Music.wav");
+				string dir = AppContext.BaseDirectory;
+				VHS_Sound = new SoundPlayer(Path.Combine(dir, "VHS_Sound.wav"));
+				Quick_Scream = new SoundPlayer(Path.Combine(dir, "Quick_Scream.wav"));
+				VHS_Static = new SoundPlayer(Path.Combine(dir, "VHS_Static.wav"));
+				VHS_Distort = new SoundPlayer(Path.Combine(dir, "VHS_Distort.wav"));
+				Intro_Music = new SoundPlayer(Path.Combine(dir, "Intro_Music.wav"));
+				Game_Music = new SoundPlayer(Path.Combine(dir, "Game_Music.wav"));
 			}
 		}
 
