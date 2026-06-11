@@ -1,0 +1,5 @@
+bin/
+obj/
+publish/
+release_package/
+*.zip
